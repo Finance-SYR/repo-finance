@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item to="/">首页</el-breadcrumb-item>
+            <el-breadcrumb-item to="/">系统首页</el-breadcrumb-item>
             <el-breadcrumb-item v-for="(item,index) in breadlist" :key="index">{{item}}</el-breadcrumb-item>
         </el-breadcrumb>
         <el-card style="margin:15px 0px">
