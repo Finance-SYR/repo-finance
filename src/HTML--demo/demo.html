@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="but" onclick="ha()">哈哈哈哈</div>
+</body>
+</html>
+<script>
+    //1.数组解构赋值
+        function ha(){
+            let but =document.getElementById('but')
+        let arr = [5, 9, 10, 8, 3, 2];
+        let [a, b, ...c] = arr; // ...c 接收剩余的其他值，得到的c是一个数组
+         but.innerHTML = c
+        }
+
+
+    //2.let声明的变量不会压到window对象中，是独立的
+        let hobby = '吃饭';
+        console.log(window.hobby); // undefined
+
+    //3.rest参数（剩余参数）
+        //(1) 调用rest参数
+            function fn(a, b, ...values) {
+                console.log(a); // 6
+                console.log(b); // 1
+                console.log(values); // [100, 9, 10]
+            }
+            fn(1,2,6); //undefined
+
+        //(2) 调用rest参数
+            function add (...values){
+                var sum = 0;
+            　　for (var val of values) {
+            　　　sum += val;
+            　　}
+                console.log(sum)
+            // 　　return sum;
+            }
+            add(2, 5, 3)  //输出 10
+
+    //4.Array.from()把伪数组转换为数组
+        let fakeArr = {
+            0: 'a',
+            1: 'b',
+            2: 'c',
+            length: 3
+        };
+        let arr = Array.from(fakeArr);
+        console.log(arr); // ['a', 'b', 'c']
+        // 转数组的对象必须有length值，因为得到的数组的成员个数是length指定的个数
+        // 上例中，如果length为2，则得到的数组为 ['a', 'b']
+
+    //5.find()方法和findIndex()方法 用于数组元素查找
+        let value = [3, 5, -1, -4, 6].find((item, index, arr) => {
+            console.log(item); //表示数组的每个值
+            console.log(index); //表示数组的每个下标
+            console.log(arr); //表示整个数组
+            //如果需要查找，要用到return 条件；
+            return item < 0; //find方法会返回第一个满足条件的值，-1
+            //如果是findIndex方法，会返回第一个满足条件的值的下标，2
+        });
+        console.log(value);
+
+    //includes(), startsWith(), endsWith()实例
+        console.log('hello world'.includes('e', 2)); // false 从位置2开始查找e，没有找到
+        console.log('hello world'.includes('e')); // true
+        console.log('hello world'.startsWith('h')); // 未指定位置，看开头是否是h，返回true
+        console.log('hello world'.startsWith('l', 2)); // 指定位置的字符是l，返回true
+        console.log('hello world'.endsWith('d')); // 未指定位置，结尾是d，返回true
+        console.log('hello world'.endsWith('r', 9)); // 指定位置的字符是r，返回true
+    //repeat()方法 返回一个新字符串，表示将原字符串重复n次。
+        let html = '<li>itheima</li>';
+        html = html.repeat(10);
+        console.log(html)
+</script>
