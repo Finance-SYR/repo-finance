@@ -14,7 +14,7 @@
                         class="demo-ruleForm"
                     >
                         <el-form-item label="用户名" prop="username" label-width="80px" style="margin-bottom:30px">
-                            <el-input type="textb " v-model.trim="ruleForm.username" placeholder="输入用户名"  autocomplete="off"></el-input>
+                            <el-input type="text" v-model.trim="ruleForm.username" placeholder="输入用户名"  autocomplete="off"></el-input>
                         </el-form-item>
                         <el-form-item label="密码" prop="password" label-width="80px">
                             <el-input type="password" v-model.trim="ruleForm.password"  placeholder="输入密码" autocomplete="off"></el-input>
